@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <popup v-if="popup" @close="closePopup" />
+        <popupAdd v-if="popup" @close="closePopup" />
         <popupEdit v-if="popupEdit" :getIdEdit="getIdEdit" @close="closePopupEdit" />
         <popupDelete v-if="popupDelete" :getIdDelete="getIdDelete" @close="closePopupDelete" />
         <button class="btn btn-success mb-3" @click="popupShow">Add</button>
@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import popup from '@/components/popup/component'
+import popupAdd from '@/components/popupAdd/component'
 import popupEdit from '@/components/popupEdit/component'
 import popupDelete from '@/components/popupDelete/component'
 
 export default {
     middleware:['auth'],
     components:{
-        popup,popupEdit,popupDelete
+        popupAdd,popupEdit,popupDelete
     },
     data(){
         return{

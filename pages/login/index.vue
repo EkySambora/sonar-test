@@ -18,6 +18,11 @@
 <script>
 import { onlyLetters } from '~/plugins/helpers.js'
 export default {
+    head(){
+        return{
+            title: 'Login'
+        }
+    },
     data(){
         return{
             username: '',

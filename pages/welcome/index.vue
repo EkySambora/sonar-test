@@ -5,6 +5,11 @@
 </template>
 <script>
 export default {
+    head(){
+        return {
+            title: 'Home'
+        }
+    },
     layout:'dashboard',
     middleware:['auth'],
     computed:{
