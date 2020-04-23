@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="logo">
             <span>
-                <nuxt-link to="/">My Logo</nuxt-link>
+                <nuxt-link to="/">Admin App</nuxt-link>
             </span>
         </div>
         <div class="logout">

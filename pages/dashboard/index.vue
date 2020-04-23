@@ -2,6 +2,7 @@
     <div class="container">
         <popup v-if="popup" @close="closePopup" />
         <popupEdit v-if="popupEdit" :getIdEdit="getIdEdit" @close="closePopupEdit" />
+        <popupDelete v-if="popupDelete" :getIdDelete="getIdDelete" @close="closePopupDelete" />
         <button class="btn btn-success mb-3" @click="popupShow">Add</button>
         <table class="table w-50  table-bordered">
             <thead>
@@ -19,7 +20,7 @@
                     <td>{{ user.password }}</td>
                     <td>
                         <button class="btn btn-success" @click="editData(user.id)">Edit</button>
-                        <button class="btn btn-warning" @click="deleteData(user.id)">Delete</button>
+                        <button class="btn btn-warning" @click="popupDeleteShow(user.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>
@@ -30,17 +31,19 @@
 <script>
 import popup from '@/components/popup/component'
 import popupEdit from '@/components/popupEdit/component'
+import popupDelete from '@/components/popupDelete/component'
 
 export default {
     middleware:['auth'],
     components:{
-        popup,popupEdit
+        popup,popupEdit,popupDelete
     },
     data(){
         return{
             title: 'Dashboard',
             popup: false,
             popupEdit: false,
+            popupDelete: false,
             getIdEdit: ''
         }
     },
@@ -63,14 +66,18 @@ export default {
             this.popupEditShow()
             this.getIdEdit = id
         },
-        deleteData(id){
-            this.$store.commit('DELETE_DATA', id)
+        popupDeleteShow(id){
+            this.popupDelete = true
+            this.getIdDelete = id
         },
         popupEditShow(){
             this.popupEdit = true
         },
         closePopupEdit(){
             this.popupEdit = false
+        },
+        closePopupDelete(){
+            this.popupDelete = false
         },
         popupShow(){
             this.popup = true
