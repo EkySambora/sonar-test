@@ -6,9 +6,10 @@
 <script>
 export default {
     layout:'dashboard',
+    middleware:['auth'],
     computed:{
         getUsername(){
-            return this.$store.state.username
+            return this.$store.state.user.username
         }
     }
 }

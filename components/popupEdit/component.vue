@@ -11,7 +11,7 @@
                     <span v-if="errorStateName">{{ errorMsgName }}</span>
                     <input :style="errorStatePassword ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" v-model="password" type="password" placeholder="password">
                     <span v-if="errorStatePassword">{{ erroMsgPassword }}</span>
-                    <div class="button" @click="saveData">Save</div>
+                    <div class="button" @click="editData">Edit</div>
                 </div>
             </div>
         </div>
@@ -20,6 +20,7 @@
 
 <script>
 export default {
+    props:["getIdEdit"],
     data() {
         return {
             name: '',
@@ -31,15 +32,16 @@ export default {
         }
     },
     computed:{
-        lengthUsers(){
-            return this.$store.state.users.length
-        },
-        lastId(){
+        getUsers(){
             return this.$store.state.users
-        }
+        },
+        
     },
     mounted(){
-        
+        let index = this.getUsers.findIndex(users => users.id == this.getIdEdit)
+        this.name = this.getUsers[index].name
+        this.password = this.getUsers[index].password
+
     },
     methods:{
         validation(){
@@ -82,10 +84,10 @@ export default {
             }
         },
 
-        saveData(){
+        editData(){
             if(this.validation()){
-                this.$store.commit('PUSH_DATA', {
-                    id:1,
+                this.$store.commit('EDIT_DATA', {
+                    id:this.getIdEdit,
                     name: this.name,
                     password: this.password
                 })

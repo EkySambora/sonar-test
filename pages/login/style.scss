@@ -24,13 +24,23 @@
                 width: 90%;
                 margin: auto;
             }
+            input[type=text]{
+                margin: 20px auto 5px auto;
+            }
+            input[type=password]{
+                margin: 5px auto 5px auto;
+            }
             input[type=text], input[type=password]{
-                margin: 20px auto;
+                // margin: 20px auto;
                 padding: 15px;
                 font-size: 16px;
                 outline: none;
                 border-radius: 5px;
                 border: 1px solid #cccccc;
+            }
+            span{
+                padding-left: 20px;
+                color:red
             }
             .button{
                 background-color:#9c3d42;
