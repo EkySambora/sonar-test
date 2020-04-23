@@ -3,14 +3,16 @@
         <div class="cover">
             <div class="box">
                 <div class="form-title">
-                    Delete Data
+                    Hapus Data
                     <span @click="closePopup">&times;</span>
                 </div>
                 <div class="title">
                     <p>Apakah anda yakin ingin menghapus Data ini?</p>
                 </div>
-                <button @click="closePopup">Tidak</button>
-                <button class="button" @click="deleteData">Ya</button>
+                <div class="btn">
+                    <button @click="closePopup">Tidak</button>
+                    <button class="button" @click="deleteData">Ya</button>
+                </div>
             </div>
         </div>
     </div>
@@ -25,6 +27,7 @@ export default {
         },
         deleteData(){
             this.$store.commit('DELETE_DATA', this.getIdDelete)
+            this.closePopup()
         }
     }
 }

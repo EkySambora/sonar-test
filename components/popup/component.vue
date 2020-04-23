@@ -68,7 +68,7 @@ export default {
                 this.errorStatePassword = true
                 this.erroMsgPassword = 'Tidak Boleh Ada Spasi'
             }
-            else if(this.password.length >= 6){
+            else if(this.password.length > 6){
                 this.errorStatePassword = true
                 this.erroMsgPassword = 'Tidak Boleh Lebih dari 6'
             }
