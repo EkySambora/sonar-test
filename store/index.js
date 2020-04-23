@@ -1,8 +1,8 @@
 export const state = () => ({ 
     auth: false,
     user:{
-        username: '',
-        password: '',
+        username: 'admin',
+        password: 'admin',
     },
     users:[
         {id:1, name: 'Alex', password: '123'},

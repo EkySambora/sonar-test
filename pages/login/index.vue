@@ -33,12 +33,21 @@ export default {
             erroMsgPassword: '',
         }
     },
+    computed:{
+        getUser(){
+            return this.$store.state.user
+        }
+    },
     methods:{
         validation(){
             if(this.username == ''){
                 this.errorStateUsername = true
                 this.errorMsgUsername = 'Tidak Boleh Kosong'
             } 
+            else if(this.username != this.getUser.username){
+                this.errorStateUsername = true
+                this.errorMsgUsername = 'Username Salah'
+            }
             else if(this.username.indexOf(' ') >= 0){
                 this.errorStateUsername = true
                 this.errorMsgUsername = 'Tidak Boleh Ada Spasi'
@@ -55,6 +64,10 @@ export default {
             if(this.password == ''){
                 this.errorStatePassword = true
                 this.erroMsgPassword = 'Tidak Boleh Kosong'
+            }
+            else if(this.password != this.getUser.password){
+                this.errorStatePassword = true
+                this.erroMsgPassword = 'Password Salah'
             }
             else if(this.password.indexOf(' ') >= 0){
                 this.errorStatePassword = true
