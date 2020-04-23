@@ -1,4 +1,4 @@
 <script>
-import Home from '~/pages/dashboard';
+import Home from '~/pages/welcome';
 export default Home
 </script>

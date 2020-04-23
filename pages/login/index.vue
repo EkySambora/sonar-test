@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="cover">
         <div class="box">
             <div class="form-title">
                 Sign in
