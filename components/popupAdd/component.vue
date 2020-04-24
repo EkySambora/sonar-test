@@ -85,7 +85,7 @@ export default {
         saveData(){
             if(this.validation()){
                 this.$store.commit('PUSH_DATA', {
-                    id:1,
+                    id: this.lengthUsers+1,
                     name: this.name,
                     password: this.password
                 })
