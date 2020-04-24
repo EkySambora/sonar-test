@@ -5,11 +5,11 @@
                 Sign in
             </div>
             <div class="form">
-                <input :style="errorStateUsername ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" type="text" placeholder="username" v-model="username">
+                <input :style="errorStateUsername ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" type="text" placeholder="username" v-model="username" autofocus>
                 <span v-if="errorStateUsername">{{ errorMsgUsername }}</span>
                 <input :style="errorStatePassword ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" type="password" placeholder="password" v-model="password">
                 <span v-if="errorStatePassword">{{ erroMsgPassword }}</span>
-                <div class="button" @click="login">Login</div>
+                <div class="button" @click="login" >Login</div>
             </div>
         </div>
     </div>

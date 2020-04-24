@@ -7,7 +7,7 @@
                     <span @click="closePopup">&times;</span>
                 </div>
                 <div class="form">
-                    <input :style="errorStateName ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`"  v-model="name" type="text" placeholder="name">
+                    <input :style="errorStateName ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`"  v-model="name" type="text" placeholder="name" autofocus>
                     <span v-if="errorStateName">{{ errorMsgName }}</span>
                     <input :style="errorStatePassword ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" v-model="password" type="password" placeholder="password">
                     <span v-if="errorStatePassword">{{ erroMsgPassword }}</span>
