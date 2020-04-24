@@ -11,8 +11,8 @@
                 <span></span>
                 <span></span>
             </div>
-            <div class="logout-btn" @click="logout">
-                Logout
+            <div class="logout-btn" >
+                <span @click="logout">Logout</span>
             </div>
         </div>
     </div>

@@ -39,9 +39,11 @@
         .logout-btn{
             width: 90%;
             text-align: right;
-            cursor: pointer;
-            &:hover{
-                color: red
+            span{
+                cursor: pointer;
+                &:hover{
+                    color: red
+                }
             }
         }
     }
