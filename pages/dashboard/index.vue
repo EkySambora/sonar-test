@@ -4,7 +4,7 @@
         <popupEdit v-if="popupEdit" :getIdEdit="getIdEdit" @close="closePopupEdit" />
         <popupDelete v-if="popupDelete" :getIdDelete="getIdDelete" @close="closePopupDelete" />
         <button class="btn btn-success mb-3" @click="popupShow">Add</button>
-        <table class="table w-50  table-bordered">
+        <table class="table w-50  table-bordered" v-if="getUsers.length > 0">
             <thead>
                 <tr>
                     <!-- <th scope="col">#</th> -->
@@ -25,6 +25,9 @@
                 </tr>
             </tbody>
         </table>
+        <div v-else>
+            <h2>Data Kosong</h2>
+        </div>
     </div>
 </template>
 
