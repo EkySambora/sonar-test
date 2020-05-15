@@ -9,7 +9,7 @@
                 <div class="form">
                     <input :style="errorStateName ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`"  v-model="name" type="text" placeholder="name" autofocus>
                     <span v-if="errorStateName">{{ errorMsgName }}</span>
-                    <input :style="errorStatePassword ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" v-model="password" type="password" placeholder="password">
+                    <input :style="errorStatePassword ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" v-model="password" type="password" placeholder="password" @keyup.enter="saveData" >
                     <span v-if="errorStatePassword">{{ erroMsgPassword }}</span>
                     <div class="button" @click="saveData">Save</div>
                 </div>

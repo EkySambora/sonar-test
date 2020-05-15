@@ -5,9 +5,9 @@
                 Sign in
             </div>
             <div class="form">
-                <input :style="errorStateUsername ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" type="text" placeholder="username" v-model="username" autofocus>
+                <input :style="errorStateUsername ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" type="text" placeholder="username" @input="validationUsername" v-model="username" autofocus />
                 <span v-if="errorStateUsername">{{ errorMsgUsername }}</span>
-                <input :style="errorStatePassword ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" type="password" placeholder="password" v-model="password">
+                <input :style="errorStatePassword ? `border-color:red;` : `border-color:#cccccc;margin: 20px auto;`" type="password" placeholder="password" v-model="password" @input="validationPassword" @keyup.enter="login" autofocus />
                 <span v-if="errorStatePassword">{{ erroMsgPassword }}</span>
                 <div class="button" @click="login" >Login</div>
             </div>
@@ -39,7 +39,7 @@ export default {
         }
     },
     methods:{
-        validation(){
+        validationUsername(){
             if(this.username == ''){
                 this.errorStateUsername = true
                 this.errorMsgUsername = 'Tidak Boleh Kosong'
@@ -57,10 +57,12 @@ export default {
                 this.errorMsgUsername = 'Tidak Boleh Lebih dari 20'
             }
             else {
-                this.errorStateUsername=false
+                this.errorStateUsername = false
                 this.errorMsgUsername = ''
+                return true
             }
-
+        },
+        validationPassword(){
             if(this.password == ''){
                 this.errorStatePassword = true
                 this.erroMsgPassword = 'Tidak Boleh Kosong'
@@ -80,15 +82,12 @@ export default {
             else {
                 this.errorStatePassword = false
                 this.erroMsgPassword = ''
-            }
-
-            if(this.errorStateUsername == false && this.errorStatePassword == false) {
                 return true
             }
         },
 
         login(){
-            if(this.validation()){
+            if(this.validationUsername() && this.validationPassword() ) {
                 let data = {
                     username : this.username,
                     password : this.password
@@ -97,6 +96,7 @@ export default {
                 this.$store.dispatch('setUser', data)
                 this.$nuxt.$router.push({path : '/'})
             }
+            
         }
     }
 }
